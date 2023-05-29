@@ -1,0 +1,108 @@
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }    //font-weight
+  &-bolder {
+    font-weight: 800;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+  &-sbold {
+    font-weight: 600;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+  &-regular {
+    font-weight: 400;
+  }
+  &-light {
+    font-weight: 300;
+  }
+  &-primary {
+    color: var(--primary-color);
+  }
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black-color;
+  @extend %primary-font;
+  @extend %bold;
+}
+.h1,
+h1 {
+  line-height: 66px;
+  font-size: 36px;
+  @include desktop-mini {
+    font-size: 48px;
+  }
+  @include laptop {
+    font-size: 54px;
+  }
+}
+.h2,
+h2 {
+  line-height: 58px;
+  font-size: 32px;
+  @include desktop-mini {
+    font-size: 38px;
+  }
+  @include laptop {
+    font-size: 44px;
+  }
+}
+.h3,
+h3 {
+  line-height: 48px;
+  font-size: 28px;
+  @include desktop-mini {
+    font-size: 32px;
+  }
+  @include laptop {
+    font-size: 36px;
+  }
+}
+.h4,
+h4 {
+  line-height: 38px;
+  font-size: 24px;
+  @include desktop-mini {
+    font-size: 28px;
+  }
+}
+.h5,
+h5 {
+  color: $black-color;
+  line-height: 1.55;
+  font-size: 20px;
+  @include desktop-mini {
+    font-size: 22px;
+  }
+  .offers &,
+  .news-and-blogs &,
+  .testimonial & {
+    text-transform: unset;
+  }
+}
+.h6,
+h6 {
+  line-height: 26px;
+  font-size: 18px;
+}

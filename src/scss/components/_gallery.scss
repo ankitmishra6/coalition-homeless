@@ -1,0 +1,67 @@
+//Inner post gallery section
+.gallery {
+  @extend %display-flex;
+    @include flex-wrap(wrap);
+  row-gap: 20px;
+  column-gap: 20px;
+  @include desktop-mini {
+    row-gap: 25px;
+    column-gap: 25px;
+  }
+  .gallery-item {
+    margin: 0;
+    flex-basis: 100%;
+    @include mobile-sm {
+      flex-basis: calc((100% - 20px)/2);
+    }
+    @include desktop-mini {
+      flex-basis: calc((100% - 50px)/3);
+    }
+    @include laptop {
+      flex-basis: calc((100% - 50px)/4);
+    }
+    img {
+      width: 100%;
+    }
+  }
+  &.gallery-columns-6 {
+    .gallery-item {
+      @include fullhd {
+        flex-basis: calc((100% - 125px)/6);
+      }
+    }
+  }
+  &.gallery-columns-5 {
+    .gallery-item {
+      @include fullhd {
+        flex-basis: calc((100% - 100px)/5);
+      }
+    }
+  }
+  &.gallery-columns-4 {
+    .gallery-item {
+      @include laptop {
+        flex-basis: calc((100% - 75px)/4);
+      }
+    }
+  }
+  &.gallery-columns-3 {
+    .gallery-item {
+      @include desktop-mini {
+        flex-basis: calc((100% - 50px)/3);
+      }
+    }
+  }
+  &.gallery-columns-2 {
+    .gallery-item {
+      @include desktop-mini {
+        flex-basis: calc((100% - 20px)/2);
+      }
+    }
+  }
+  &.gallery-columns-1 {
+    .gallery-item {
+      flex-basis: 100%;
+    }
+  }
+}

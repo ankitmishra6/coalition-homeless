@@ -1,0 +1,36 @@
+.video-block {
+  background-size: cover;
+  @extend %background-center;
+    background-repeat: no-repeat;
+  @extend %relative;
+    color: $white-color;
+  @extend .text-center;
+    z-index: 1;
+  &:before {
+    @extend %absolute;
+    @extend %content;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $black-color;
+    opacity: 0.3;
+    z-index: -1;
+  }
+  &__text {
+    h2 {
+      color: $white-color;
+      margin-top: 20px;
+    }
+  }
+  &__icon {
+    svg {
+      width: 50px;
+      height: 50px;
+      @include desktop-mini {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}

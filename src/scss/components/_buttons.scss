@@ -1,0 +1,142 @@
+.btn {
+  font-size: 12px;
+  line-height: 16px;
+  display: inline-block;
+  @extend %relative;
+  @extend %semi-bold;
+  padding: 18px 36px;
+  box-sizing: inherit;
+  vertical-align: middle;
+  @extend .text-center;
+  @include transition(0.2s ease);
+  color: $white-color;
+  @extend %capitalise;
+  font-family: $primary-font;
+  cursor: pointer;
+  border: 2px solid;
+  @extend %secondary-font;
+  text-decoration: none;
+  @include mobile-sm-max {
+    width: 100%;
+  }
+  &-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    &:hover,
+    &:focus {
+      background: var(--secondary-color);
+      border-color: var(--secondary-color);
+      color: $white-color;
+    }
+  }
+  &-sm {
+    padding: 9px 30px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  &-lg {
+    padding: 12px 40px;
+    font-size: 16px;
+    line-height: 1.375;
+  }
+  &-outline {
+    border-color: var(--primary-color);
+    background: transparent;
+    &:hover,
+    &:focus {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: $white-color;
+    }
+  }
+  &-white {
+    border-color: $white-color;
+    background-color: $white-color;
+    color: var(--primary-color);
+    &:hover,
+    &:focus {
+      background: var(--primary-color);
+      border-color: $white-color;
+      color: $white-color;
+    }
+  }
+  &-text {
+    color: var(--primary-color);
+    @extend %primary-font;
+        font-size: 15px;
+    line-height: 1.34;
+    display: block;
+    @extend %bold;
+    @include transition(all 0.5s ease);
+    span {
+      padding-left: 7px;
+      @include transition(all 0.3s ease);
+      svg path {
+        fill: var(--primary-color);
+      }
+    }
+    &:hover {
+      color: var(--secondary-color);
+      span {
+        padding-left: 12px;
+        svg path {
+          fill: var(--secondary-color);
+        }
+      }
+    }
+  }
+  &-arrow {
+    // background: url("/assets/img/right-arrow.png");
+    height: 13px;
+    width: 13px;
+    height: 12px;
+    width: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    display: inline-block;
+  }
+  &-wrap {
+    @extend .display-flex;
+    @include mobile-sm-max {
+    @include flex-wrap(wrap);
+    }
+    a + a {
+      @include mobile-sm-max {
+        margin-top: 15px;
+      }
+      @include mobile-sm {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+.has-spinner {
+  @extend %relative;
+}
+#back-to-top {
+  display: none;
+  padding: 0;
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.37);
+  color: #fff;
+  cursor: pointer;
+  @extend .text-center;
+    line-height: 70px;
+  @include border-radius(100%);
+  z-index: 999;
+  -webkit-transition: all ease 0.35s;
+  -moz-transition: all ease 0.35s;
+  transition: all ease 0.35s;
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-top: 18px;
+  }
+}

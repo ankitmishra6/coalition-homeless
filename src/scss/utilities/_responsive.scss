@@ -1,0 +1,74 @@
+// For Responsive
+$mobile-sm: 575px !default;
+$tablet: 767px !default;
+$desktop-mini: 992px !default;
+$desktop: 1024px !default;
+$laptop: 1199px !default;
+$fullhd: 1440px !default;
+$fullxl: 1600px !default;
+
+@mixin mobile {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin mobile-sm {
+  @media screen and (min-width: $mobile-sm), print {
+    @content;
+  }
+}
+@mixin mobile-sm-max {
+  @media screen and (max-width: #{$mobile-sm - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: $tablet), print {
+    @content;
+  }
+}
+@mixin tablet-max {
+  @media screen and (max-width: #{$desktop-mini - 1px}) {
+    @content;
+  }
+}
+@mixin tablet-only {
+  @media screen and (min-width: $tablet) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
+@mixin desktop-mini {
+  @media screen and (min-width: $desktop-mini), print {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+@mixin desktop-max {
+  @media screen and (max-width: #{$laptop - 1px}) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: $laptop) {
+    @content;
+  }
+}
+@mixin desktop-only {
+  @media screen and (min-width: $desktop) and (max-width: #{$fullhd - 1px}) {
+    @content;
+  }
+}
+@mixin fullhd {
+  @media screen and (min-width: $fullhd) {
+    @content;
+  }
+}
+@mixin fullxl {
+  @media screen and (min-width: $fullxl) {
+    @content;
+  }
+}

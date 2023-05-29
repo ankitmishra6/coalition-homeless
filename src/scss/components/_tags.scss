@@ -1,0 +1,18 @@
+.tag {
+  &__plan {
+    font-size: 14px;
+    @extend %primary-font;
+        background-color: var(--primary-color);
+    color: $white-color;
+    padding: 9px 20px;
+    @include border-radius(5px);
+    margin: 5px;
+    line-height: 1;
+    display: inline-block;
+    @extend %medium;
+        &:hover {
+      color: $white-color;
+      background: var(--secondary-color);
+    }
+  }
+}

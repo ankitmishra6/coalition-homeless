@@ -1,0 +1,46 @@
+.card {
+  background: $white-color;
+  cursor: pointer;
+  @extend %relative;
+    &__img {
+    height: 293px;
+    margin: 0;
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &__content {        //padding: 20px 0 8px
+    .tag__category {
+      float: right;
+    }
+  }
+  &__title {
+    margin: 10px 0 20px;
+    @extend %medium;
+  }
+  &__wrapper {
+    @extend %display-flex;
+        @include flex-wrap(wrap);
+    column-gap: 30px;
+    @include desktop-mini {
+      column-gap: 50px;
+    }
+  }
+  .awards & {
+    padding: 24px 16px;
+    @extend .box-shadow;
+        @extend .item-center;
+        flex: 0 0 100%;
+    @include fullxl {
+      padding: 22px 40px;
+    }
+    &__img {
+      max-width: 200px;
+      max-height: 156px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+%primary-font {
+    font-family: var(--primary-font);
+  }
+  %secondary-font {
+    font-family: var(--secondary-font);
+  }
+  //font-weight
+  %bolder {
+    font-weight: 800;
+  }
+  %bold {
+    font-weight: 700;
+  }
+  %semi-bold {
+    font-weight: 600;
+  }
+  %medium {
+    font-weight: 500;
+  }
+  %regular {
+    font-weight: 400;
+  }
+  %light {
+    font-weight: 300;
+  }
+  %uppercase {
+    text-transform: uppercase;
+  }
+  %capitalise {
+    text-transform: capitalize;
+  }
+  %overflow {
+    overflow: hidden;
+  }
+  %relative {
+    position: relative;
+  }
+  %absolute {
+    position: absolute;
+  }
+  %content {
+    content: "";
+  }
+  %display-flex {
+    @include display-flex;
+  }
+  %cursor-inherit {
+    cursor: inherit;
+  }
+  %transform-center {
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+  %background-norepeat {
+    background-repeat: no-repeat;
+  }
+  %background-center {
+    background-position: center;
+  }
+  %background-cover {
+    background-size: cover;
+  }

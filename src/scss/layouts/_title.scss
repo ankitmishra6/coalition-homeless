@@ -1,0 +1,85 @@
+.section-header {
+  margin-bottom: 28px;
+  @include desktop-mini {
+    margin-bottom: 50px;
+  }
+  @include tablet-max {
+    text-align: center;
+  }
+  &__tag {
+    @extend %bold;
+    @extend %uppercase;
+    font-size: 14px;
+    color: var(--primary-color);
+    line-height: 1.35;
+    margin-bottom: 10px;
+    letter-spacing: 0.12em;
+    display: inline-block;
+    &--sideLine {
+      @include display-inline-flex;
+      @include align-items(center);
+      &:before,
+      &:after {
+        @extend %content;
+        width: 30px;
+        height: 1.5px;
+        background-color: var(--primary-color);
+        display: inline-block;
+      }
+      &:before {
+        margin-right: 10px;
+      }
+      &:after {
+        margin-left: 10px;
+      }
+    }
+  }
+  &__title {
+    color: $black-color;
+    line-height: 1.35;
+    font-size: 28px;
+    @extend %bold;
+        @include desktop-mini {
+      font-size: 32px;
+    }
+    @include laptop {
+      font-size: 36px;
+    }
+    &-2 {
+      font-size: 32px;
+      line-height: 1.32;
+      margin-bottom: 10px;
+      @include desktop-mini {
+        font-size: 238px;
+      }
+      @include laptop {
+        font-size: 44px;
+      }
+    }
+  }
+  &--center {
+    @extend .text-center;
+  }
+  &--fixed-width {
+    @extend .section-header--center;
+    max-width: 696px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .cta-image & {
+    max-width: 826px;
+    margin: 0 auto 30px;
+    @extend %relative;
+    &__title-2 {
+      color: $white-color;
+      margin-bottom: 15px;
+    }
+  }
+}
+.label-text {
+  font-size: 16px;
+  color: var(--primary-color);
+  display: block;
+  line-height: 1.375;
+}

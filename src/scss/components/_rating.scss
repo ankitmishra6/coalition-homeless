@@ -1,0 +1,16 @@
+//rating
+
+.rating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 1.4rem;
+  font-family: Times;
+  line-height: 1;
+}
+.rating::before {
+  content: '★★★★★';
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, rgb(246, 202, 27) var(--percent), #afafaf var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

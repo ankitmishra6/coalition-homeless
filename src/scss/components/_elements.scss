@@ -1,0 +1,238 @@
+/* Elements --------------------------------------------- */
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+dt {
+  @extend %semi-bold;
+}
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+select {
+  max-width: 100%;
+}
+::placeholder {
+  @extend %secondary-font;
+    font-size: 1em;
+  @extend %medium;
+}
+.wp-caption-text,
+figcaption {
+  @extend %secondary-font;
+    font-size: 16px;
+  line-height: 2.3333333;
+  @extend .text-center;
+    color: $gray-700;
+}
+blockquote {
+  background-color: $primary-100;
+  @extend %relative;
+    margin: 0;
+  padding: 30px;
+  border-left: 3px solid var(--primary-color);
+
+  &::after {
+    @extend %absolute;
+        @extend %content;
+        background-image: url("data:image/svg+xml,%3Csvg width='128' height='100' viewBox='0 0 128 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.2' d='M73.2631 92.8699L77.8977 100C109.983 78.4314 127.809 52.2282 127.809 30.6595C127.809 9.80392 112.479 0 99.4663 0C83.0671 0 71.4806 13.9037 71.4806 28.5205C71.4806 40.82 79.3237 51.3369 89.8407 55.2585C92.871 56.328 95.723 57.2193 95.723 62.3886C95.723 68.984 90.9102 78.7879 73.2631 92.8699ZM2.49665 92.8699L7.13123 100C38.8603 78.4314 57.0421 52.2282 57.0421 30.6595C57.0421 9.80392 41.3558 0 28.3434 0C11.7658 0 0.00111389 13.9037 0.00111389 28.5205C0.00111389 40.82 8.0225 51.3369 18.8959 55.2585C21.9262 56.328 24.6 57.2193 24.6 62.3886C24.6 68.984 19.6089 78.7879 2.49665 92.8699Z' fill='%23AF9065'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+    width: 127px;
+    height: 100px;
+  }
+  p {
+    margin-bottom: 0 !important;
+    font-style: normal;
+    @extend .text-left;
+  }
+  cite {
+    color: $black-color;
+    @extend %regular;
+        font-style: normal;
+    @extend %primary-font;
+        margin-top: 5px;
+    display: block;
+  }
+}
+#primary .post .entry-content {
+  table {
+    border-collapse: collapse;
+    text-align: left;
+    padding: 20px;
+    border: none;
+    thead {
+      tr {
+        background: var(--primary-color);
+        border: none;
+        th {
+          color: $white-color;
+          font-size: 1em;
+          @extend %medium;
+                    line-height: 1.5556;
+          padding: 18px 21px;
+          border: none;
+          @extend %primary-font;
+        }
+      }
+    }
+    tbody {
+      border: none;
+      tr {
+        border: none;
+        td {
+          border: none;
+          font-size: 1em;
+          @extend %medium;
+          line-height: 1.5556;
+          color: $text-gray;
+          padding: 18px 21px;
+          a {
+            text-decoration: underline;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        &:nth-of-type(odd) {
+          background: $primary-100;
+        }
+
+        &:nth-of-type(even) {
+          background: $primary-200;
+        }
+      }
+    }
+  }
+}
+.wp-block-image {
+  .alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+    @include mobile {
+      margin-left: 0;
+      float: none;
+    }
+  }
+  .alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+    @include mobile {
+      margin-right: 0;
+      float: none;
+    }
+  }
+}
+.wp-block-media-text {
+  &.is-stacked-on-mobile {
+    .wp-block-media-text__content {
+      padding-right: 0;
+
+      @include mobile {
+        padding: 0;
+      }
+    }
+  }
+  &.has-media-on-the-right {
+    .wp-block-media-text__content {
+      padding-right: 8%;
+      padding-left: 0;
+
+      @include mobile {
+        padding-right: 0;
+      }
+    }
+  }
+}
+.tag-list {
+  @include mobile {
+    text-align: left;
+  }
+  span {
+    margin-right: 20px;
+    display: inline-block;
+  }
+  ul {
+    margin: 0;
+    font-size: 0.89rem;
+    @extend %semi-bold;
+        color: $black-color;
+    li {
+      display: inline-block;
+      margin-bottom: 15px;
+      @include tablet {
+        margin-bottom: 20px;
+      }
+      &:not(:last-of-type) {
+        margin-right: 10px;
+        @include tablet {
+          margin-right: 10px;
+        }
+      }
+      a {
+        padding: 9px 10px;
+        max-height: 36px;
+        line-height: 1;
+        background: rgba(55, 126, 249, 0.1);
+        color: $black-color;
+        font-size: 0.89rem;
+        @include border-radius(5px);
+        @extend %regular;
+        display: inline-block;
+        @extend %primary-font;
+        @include transition(all 0.5s ease);
+        @extend %capitalise;
+      }
+    }
+  }
+}
