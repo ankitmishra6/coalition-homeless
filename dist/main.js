@@ -123,18 +123,65 @@ let mobileNavigation = (function () {
 //for sub menu in mobile version
 let mobSubmenuDropdown = (function () {
     let DOM = {};
+    let blockName = 'mob-sub-menu'
 
     function mobSubMenuOpen(e) {
         e.preventDefault();
-        DOM.dropdownItems.style.display = "block";
+        //e.target is what triggers the event dispatcher to trigger and e.currentTarget is what you assigned your listener to.
+        let parentElem = e.currentTarget.parentElement;
+        console.log(parentElem)
+        let subMenu = parentElem.querySelector('.mob-sub-menu')
+        subMenu.classList.add(`${blockName}--show`)
     }
 
     function cacheDOM() {
-        DOM.dropdownItems = document.querySelector('.mob-sub-menu');
-        DOM.mobDropdown = document.querySelector('.mob-nav-links');
+        DOM.mobDropdownLinks = document.querySelectorAll('.mob-nav-links');
     }
     function eventListeners() {
-        DOM.mobDropdown.addEventListener('click', mobSubMenuOpen);
+        DOM.mobDropdownLinks.forEach((dropDownTrigger, index) => {
+            dropDownTrigger.addEventListener('click', mobSubMenuOpen)
+        });
+    }
+    function init() {
+        cacheDOM();
+        eventListeners();
+    }
+    return {
+        init: init,
+    };
+})();
+
+
+
+//fpr popop model
+let popop = (function () {
+    let DOM = {};
+    let modalShow = 'popop__gallery'
+
+    function openModal(e) {
+        e.preventDefault();
+        DOM.popop.classList.add(`${modalShow}--show`);
+    }
+    function closeModal(e) {
+        e.preventDefault();
+        DOM.popop.classList.remove(`${modalShow}--show`);
+    }
+    // Click outside and close
+    function outsideClick(e) {
+        if (e.target === DOM.popop) {
+            DOM.popop.style.display = 'none';
+        }
+    }
+
+    function cacheDOM() {
+        DOM.popop = document.querySelector('.popop__gallery');
+        DOM.modalBtn = document.getElementById('modalBtn');
+        DOM.modelCloseBtn = document.querySelector('.popopclosebtn');
+    }
+    function eventListeners() {
+        DOM.modalBtn.addEventListener('click', openModal);
+        DOM.modelCloseBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', outsideClick);
     }
     function init() {
         cacheDOM();
@@ -156,6 +203,10 @@ document.addEventListener('DOMContentLoaded', mobileNavigation.init);
 
 console.log(mobSubmenuDropdown);
 document.addEventListener('DOMContentLoaded', mobSubmenuDropdown.init);
+
+
+console.log(popop);
+document.addEventListener('DOMContentLoaded', popop.init);
 
 
 

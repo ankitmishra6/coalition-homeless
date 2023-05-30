@@ -1,0 +1,37 @@
+.counter{
+    margin: 24px;
+    &-wrapper{
+        background-color: #f3f2ed;
+        border: 5px solid var(--primary-color);
+        @include flex-center-center;
+        padding: 16px 100px;
+        @extend %relative;
+        gap: 12px;
+        &::before{
+            @extend %absolute;
+            @extend %content;
+            width: 160px;
+            height: 4px;
+            background-color: var(--primary-color);
+            left: -40px;
+            @include mobile{
+                display: none;
+            }
+        }
+        @include tablet-max{
+            flex-direction: column;
+        }
+    }
+    &-number{
+        font-size: 48px;
+        @extend %secondary-font;
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+    &-info{
+        color: var(--primary-color);
+        line-height: 1.1;
+        font-size: 19px;
+        font-weight: 600;
+    }
+}
