@@ -3108,10 +3108,6 @@ input[type=checkbox] {
   color: #303030;
 }
 
-.show-modal {
-  display: block;
-}
-
 .section-header {
   margin-bottom: 8px;
   display: -webkit-box;

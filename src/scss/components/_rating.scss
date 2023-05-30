@@ -8,9 +8,13 @@
   line-height: 1;
 }
 .rating::before {
-  content: '★★★★★';
+  content: "★★★★★";
   letter-spacing: 3px;
-  background: linear-gradient(90deg, rgb(246, 202, 27) var(--percent), #afafaf var(--percent));
+  background: linear-gradient(
+    90deg,
+    rgb(246, 202, 27) var(--percent),
+    #afafaf var(--percent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
