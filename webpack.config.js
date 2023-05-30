@@ -24,11 +24,10 @@ module.exports = (env, argv) => {
                             options: {
                                 sourceMap: true,
                                 sassOptions: {
-                                    outputStyle: "compressed",
+                                    implementation: require("sass"),
                                 },
                             },
                         },
-                        // |":Q-loader',
                     ],
                 },
             ],

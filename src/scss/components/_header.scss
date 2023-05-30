@@ -99,31 +99,81 @@
       }
     }
     &-buttom {
-        @include tablet-max{
-            display: none;
+      @include tablet-max {
+        display: none;
+      }
+      .menu-wrap {
+        z-index: 11;
+        margin: 0;
+        @include flex-aligncenter;
+        @include justify-content(space-between);
+        gap: 1.5px;
+  
+        .menu-item-has-children {
+          @extend %relative;
         }
-        .menu-wrap{
-            margin: 0;
-            @include flex-aligncenter;
-            @include justify-content(space-between);
-            gap: 1.5px;
-            .menu-item{
-                background-color: var(--primary-color);
-                width: 25%;
-                &:hover{
-                    background-color: var(--secondary-color);
-                }
-                a{
-                    color: $white-color;
-                    display: block;
-                    @extend %primary-font;
-                    padding: 12px 28px;
-                }
-                &:first-child{
-                    background: var(--secondary-color);
-                }
+        .menu-item {
+          width: 25%;
+          background-color: var(--primary-color);
+          @include tablet-max {
+            width: 100%;
+          }
+          a {
+            display: block;
+            white-space: nowrap;
+            color: $white-color;
+            padding: 12px 28px;
+            @extend %primary-font;
+                      text-align: center;
+            font-size: 16px;
+            @include tablet-max {
+              display: flex;
+              justify-content: space-between;
             }
+            i {
+              margin-left: 3px;
+              font-size: 12px;
+              font-weight: 600;
+            }
+          }
+          &:hover {
+            .sub-menu {
+              display: block;
+            }
+          }
+          .sub-menu {
+            box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.3);
+            @extend %absolute;
+            background-color: $white-color;
+            width: 300px;
+            z-index: 9;
+            &-item {
+              display: block;
+              text-align: left;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+              a {
+                text-align: left;
+                color: $black-color;
+                font-size: 18px;
+                &:hover {
+                  color: var(--primary-color);
+                }
+              }
+            }
+          }
+          &:first-child {
+            background-color: var(--secondary-color);
+          }
+          &:hover {
+            background-color: var(--secondary-color);
+          }
         }
+      }
+      .active {
+        display: block;
+        height: 400px;
+        opacity: 1;
+      }
     }
   }
   .header-mobile {

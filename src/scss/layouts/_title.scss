@@ -1,85 +1,48 @@
 .section-header {
-  margin-bottom: 28px;
-  @include desktop-mini {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 8px;
+  @include flex-aligncenter;
+  justify-content: space-between;
   @include tablet-max {
-    text-align: center;
-  }
-  &__tag {
-    @extend %bold;
-    @extend %uppercase;
-    font-size: 14px;
-    color: var(--primary-color);
-    line-height: 1.35;
-    margin-bottom: 10px;
-    letter-spacing: 0.12em;
-    display: inline-block;
-    &--sideLine {
-      @include display-inline-flex;
-      @include align-items(center);
-      &:before,
-      &:after {
-        @extend %content;
-        width: 30px;
-        height: 1.5px;
-        background-color: var(--primary-color);
-        display: inline-block;
-      }
-      &:before {
-        margin-right: 10px;
-      }
-      &:after {
-        margin-left: 10px;
-      }
-    }
+    flex-direction: column;
+    align-items: start;
   }
   &__title {
     color: $black-color;
     line-height: 1.35;
-    font-size: 28px;
     @extend %bold;
-        @include desktop-mini {
-      font-size: 32px;
+    position: relative;
+    margin-bottom: 24px;
+    font-size: 38px;
+    @extend %primary-font;
+    &::before {
+      position: absolute;
+      content: '';
+      height: 4px;
+      width: 30px;
+      background: var(--primary-color);
+      bottom: -8px;
+      left: 0;
     }
-    @include laptop {
-      font-size: 36px;
-    }
-    &-2 {
-      font-size: 32px;
-      line-height: 1.32;
-      margin-bottom: 10px;
-      @include desktop-mini {
-        font-size: 238px;
-      }
-      @include laptop {
-        font-size: 44px;
-      }
-    }
-  }
-  &--center {
-    @extend .text-center;
-  }
-  &--fixed-width {
-    @extend .section-header--center;
-    max-width: 696px;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .cta-image & {
-    max-width: 826px;
-    margin: 0 auto 30px;
-    @extend %relative;
-    &__title-2 {
+    &--white {
+      text-align: center;
       color: $white-color;
-      margin-bottom: 15px;
+      &::before {
+        background: $white-color;
+      }
     }
   }
-}
-.label-text {
-  font-size: 16px;
-  color: var(--primary-color);
-  display: block;
-  line-height: 1.375;
+  &--sideline {
+    width: 400px;
+    @include mobile {
+      width: 100%;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 400;
+    }
+    a {
+      text-decoration: underline;
+      @extend %secondary-font;
+    }
+  }
 }
