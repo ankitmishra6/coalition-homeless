@@ -25,9 +25,35 @@
     display: none;
     &--img {
       @extend %relative;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
+      @include center(horizontal);
+      width: 50%;
+      height: 100%;
+      .btn-prev {
+        @extend %absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 100px;
+        padding: 16px 19px;
+        background: #fff;
+        border: none;
+        i {
+          color: $black-color;
+        }
+      }
+      .btn-next {
+        @extend %absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 100px;
+        padding: 16px 19px;
+        background: #fff;
+        border: none;
+        i {
+          color: $black-color;
+        }
+      }
     }
     &--show {
       display: block;
@@ -44,4 +70,14 @@
   &:hover {
     color: #303030;
   }
+}
+.sliderImg {
+  @extend %absolute;
+  transition: opacity 1s;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+}
+.sliderImg--active {
+  opacity: 1;
 }

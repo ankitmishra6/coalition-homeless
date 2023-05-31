@@ -169,7 +169,7 @@ let popop = (function () {
     // Click outside and close
     function outsideClick(e) {
         if (e.target === DOM.popop) {
-            DOM.popop.style.display = 'none';
+            DOM.popop.classList.remove(`${modalShow}--show`);
         }
     }
 
@@ -194,6 +194,57 @@ let popop = (function () {
 
 
 
+//slider left to right
+let slideSlider = (function () {
+    let DOM = {};
+    let i = 0;
+    let activeSlide = 'sliderImg--active';
+
+    function leftSlide(e) {
+        DOM.slide[i].classList.remove(activeSlide);
+        i--;
+
+        if (i < 0) {
+            i = DOM.slide.length - 1;
+        }
+        DOM.slide[i].classList.add(activeSlide);
+    }
+
+    function rightSlide(e) {
+        DOM.slide[i].classList.remove(activeSlide);
+        i++;
+
+        if (i >= DOM.slide.length) {
+            i = 0;
+        }
+        DOM.slide[i].classList.add(activeSlide);
+    }
+
+    function cacheDOM() {
+        DOM.nextBtn = document.querySelector('.btn-next');
+        DOM.prevBtn = document.querySelector('.btn-prev');
+        DOM.slide = document.querySelectorAll('.popop__gallery--img img');
+    }
+
+    function eventListeners() {
+        DOM.prevBtn.addEventListener('click', leftSlide);
+        DOM.nextBtn.addEventListener('click', rightSlide);
+    }
+
+    function init() {
+        cacheDOM();
+        eventListeners();
+    }
+
+    return {
+        init: init,
+    };
+})();
+
+
+
+
+
 
 console.log(overlaySearchMenu);
 document.addEventListener('DOMContentLoaded', overlaySearchMenu.init);
@@ -204,9 +255,11 @@ document.addEventListener('DOMContentLoaded', mobileNavigation.init);
 console.log(mobSubmenuDropdown);
 document.addEventListener('DOMContentLoaded', mobSubmenuDropdown.init);
 
-
 console.log(popop);
 document.addEventListener('DOMContentLoaded', popop.init);
+
+console.log(slideSlider);
+document.addEventListener('DOMContentLoaded', slideSlider.init);
 
 
 
